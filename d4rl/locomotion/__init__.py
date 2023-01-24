@@ -422,3 +422,72 @@ register(
         'v2_resets': True,
     }
 )
+
+register(
+    id='antmaze-medium-narrow-v2',
+    entry_point='d4rl.locomotion.ant:make_ant_maze_env',
+    max_episode_steps=1000,
+    kwargs={
+        'maze_map': maze_env.BIG_MAZE_TEST,
+        'reward_type':'sparse',
+        'dataset_url':'http://rail.eecs.berkeley.edu/datasets/offline_rl/ant_maze_v2/Ant_maze_medium_test_noisy_multistart_False_multigoal_False_sparse.hdf5',
+        'non_zero_reset':False, 
+        'eval':True,
+        'maze_size_scaling': 4.0,
+        'ref_min_score': 0.0,
+        'ref_max_score': 1.0,
+        'v2_resets': True,
+    }
+)
+
+register(
+    id='antmaze-medium-narrowmultistart-v2',
+    entry_point='d4rl.locomotion.ant:make_ant_maze_env',
+    max_episode_steps=1000,
+    kwargs={
+        'maze_map': maze_env.BIG_MAZE_TEST,
+        'reward_type':'sparse',
+        'dataset_url':'http://rail.eecs.berkeley.edu/datasets/offline_rl/ant_maze_v2/Ant_maze_medium_test_noisy_multistart_True_multigoal_False_sparse.hdf5',
+        'non_zero_reset':False, 
+        'eval':True,
+        'maze_size_scaling': 4.0,
+        'ref_min_score': 0.0,
+        'ref_max_score': 1.0,
+        'v2_resets': True,
+    }
+)
+
+# relabeled with (np.linalg.norm(all_obs[1:,:2] - target_goal, axis=1) <= 1.5).astype(np.float32)
+register(
+    id='antmaze-large-narrow-v2',
+    entry_point='d4rl.locomotion.ant:make_ant_maze_env',
+    max_episode_steps=1000,
+    kwargs={
+        'maze_map': maze_env.HARDEST_MAZE_TEST,
+        'reward_type':'sparse',
+        'dataset_url':'http://rail.eecs.berkeley.edu/datasets/offline_rl/ant_maze_v2/Ant_maze_large_test_noisy_multistart_False_multigoal_False_sparse.hdf5',
+        'non_zero_reset':False, 
+        'eval':True,
+        'maze_size_scaling': 4.0,
+        'ref_min_score': 0.0,
+        'ref_max_score': 1.0,
+        'v2_resets': True,
+    }
+)
+
+register(
+    id='antmaze-large-narrowmultistart-v2',
+    entry_point='d4rl.locomotion.ant:make_ant_maze_env',
+    max_episode_steps=1000,
+    kwargs={
+        'maze_map': maze_env.HARDEST_MAZE_TEST,
+        'reward_type':'sparse',
+        'dataset_url':'http://rail.eecs.berkeley.edu/datasets/offline_rl/ant_maze_v2/Ant_maze_large_test_noisy_multistart_True_multigoal_False_sparse.hdf5',
+        'non_zero_reset':False, 
+        'eval':True,
+        'maze_size_scaling': 4.0,
+        'ref_min_score': 0.0,
+        'ref_max_score': 1.0,
+        'v2_resets': True,
+    }
+)
